@@ -8,17 +8,28 @@ defineProps<{
 }>();</script>
 
 <template>
-<div class="profile-card">
-    <img v-if="photo" :src="photo"/>
-    <img v-else
+  <div class="profile-card">
+    <img v-if="photo" :src="photo" />
+    <img
+      v-else-if="gender === 'female'"
+      src="https://phlebotomycareertraining.com/wp-content/uploads/2023/11/default-avatar-photo-placeholder-icon-grey-vector-38519922-e1699300466746-768x768.jpg"
+    />
+    <img
+      v-else
+      src="https://connectkaro.org/wp-content/uploads/2019/03/placeholder-profile-male-500x500.png"
     />
 
     <div class="info">
-      <h3>{{name}}</h3>
+      <h3>{{ name }}</h3>
 
       <div class="label-container">
-        <span>{{age}}let</span>
-        <span>{{ gender }}</span>
+        <Label theme="grey">{{ age }} let</Label>
+        <Label v-if="gender === 'male'" theme="blue">
+          {{ gender }}
+        </Label>
+        <Label v-if="gender === 'female'" theme="pink">
+          {{ gender }}
+        </Label>
       </div>
 
       <p>{{ bio }}</p>

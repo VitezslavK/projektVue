@@ -42,15 +42,30 @@ const profiles = [
 ]
 </script>
 <template>
-    <profileCard
-    v-for="profile in profiles"
-    :key=" profile.name "
-    :name="profile.name"
-    :age="profile.age"
-    :gender="profile.gender"
-    :bio="profile.bio"
-    :photo="profile.photo"
-    />
+  <main>
+    <h1>Profily</h1>
+    <section>
+      <ProfileCard
+        v-for="profile in profiles"
+        :key="profile.name"
+        :name="profile.name"
+        :age="profile.age"
+        :gender="profile.gender"
+        :photo="profile.photo"
+        :bio="profile.bio"
+      />
+    </section>
+  </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px 0;
+}
+</style>
+
+
